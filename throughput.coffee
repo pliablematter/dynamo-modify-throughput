@@ -3,7 +3,7 @@ commander = require 'commander'
 
 RETRY_SECONDS = 10
 
-commander._name = "throughput"
+commander._name = "npm start"
 commander
 	.version('1.0.0')
 	.option('-t, --table <name>', 'Table Name')
@@ -15,7 +15,7 @@ commander
 	.on '--help', () =>
 		console.log """
 			Example Call:
-			coffee throughput.coffee -t my_dynamo_table -r 10 -w 5
+			npm start -t my_dynamo_table -r 10 -w 5
 
 			-t, -r and -w arguments are required. AWS access key id and 
 			secret must be provided via arguments if the AWS_ACCESS_KEY_ID
