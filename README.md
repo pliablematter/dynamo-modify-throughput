@@ -18,7 +18,7 @@ Your AWS credentials and default region will need to be provided via environment
 * AWS\_SECRET\_ACCESS\_KEY
 
 ## Usage
-Usage: ./throughput [options]
+Usage: throughput [options]
 
   Options:
 
