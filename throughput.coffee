@@ -1,3 +1,27 @@
+###
+The MIT License (MIT)
+
+Copyright (c) 2014 Pliable Matter LLC
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+###
+
 AWS = require 'aws-sdk'
 commander = require 'commander'
 
@@ -17,7 +41,7 @@ commander
 			Example Call:
 			npm start -t my_dynamo_table -r 10 -w 5
 
-			-t, -r and -w arguments are required. AWS access key id and 
+			-t, and either -r or -w arguments are required. AWS access key id and 
 			secret must be provided via arguments if the AWS_ACCESS_KEY_ID
 			AWS_SECRET_ACCESS_KEY and AWS_DEFAULT_REGION environment variables
 			have not been set.
@@ -26,7 +50,7 @@ commander
 
 commander.parse process.argv
 
-if !(commander.table? && commander.read? && commander.write)
+if !(commander.table? && (commander.read? || commander.write?))
 	return commander.help()
 
 awsConfig =
@@ -56,6 +80,12 @@ adjustThroughput = (tableName, readCapacity, writeCapacity) =>
 				writeUnits = describe.Table.ProvisionedThroughput.WriteCapacityUnits
 				console.log "Current read capacity: #{readUnits}"
 				console.log "Current write capacity #{writeUnits}"
+
+				if !readCapacity
+					readCapacity = readUnits
+
+				if !writeCapacity
+					writeCapacity = writeUnits
 
 				if readUnits < readCapacity
 					doubleReadUnits = readUnits * 2

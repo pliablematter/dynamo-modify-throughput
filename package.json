@@ -1,35 +1,33 @@
 {
-  "name": "dynamo-modify-throughput",
-  "version": "1.0.0",
-  "description": "Command line script for increasing and decreasing AWS DynamoDB table throughput",
-  "main": "throughput.coffee",
-  "scripts": {
-    "start": "node_modules/coffee-script/bin/coffee throughput.coffee"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pliablematter/dynamo-modify-throughput.git"
-  },
-  "keywords": [
-    "Amazon",
-    "Web",
-    "Services",
-    "AWS",
-    "DynamoDB",
-    "Read",
-    "Capacity",
-    "Write",
-    "Capacity"
-  ],
-  "author": "Doug Burns",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/pliablematter/dynamo-modify-throughput/issues"
-  },
-  "homepage": "https://github.com/pliablematter/dynamo-modify-throughput",
-  "dependencies": {
-    "commander": "^2.2.0",
-    "aws-sdk": "^2.0.0-rc13",
-    "coffee-script": "^1.7.1"
-  }
+    "name": "dynamo-modify-throughput",
+    "version": "1.0.0",
+    "description": "Command line script for increasing and decreasing AWS DynamoDB table throughput",
+    "main": "throughput.coffee",
+    "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pliablematter/dynamo-modify-throughput.git"
+    },
+    "keywords": [
+        "Amazon",
+        "Web",
+        "Services",
+        "AWS",
+        "DynamoDB",
+        "Read",
+        "Capacity",
+        "Write",
+        "Capacity"
+    ],
+    "author": "Doug Burns",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/pliablematter/dynamo-modify-throughput/issues"
+    },
+    "homepage": "https://github.com/pliablematter/dynamo-modify-throughput",
+    "dependencies": {
+        "commander": "^2.2.0",
+        "aws-sdk": "^2.0.0-rc13",
+        "coffee-script": "^1.7.1"
+    }
 }
