@@ -3,7 +3,7 @@ DynamoDB provisioned throughput can only be updated by 100% at a time, which can
 
 This script aims to make that quicker and easier by stepping the value up or down until it reaches the desired level.
 
-***WARNING: Setting your provisioned throughput to unexpectedly high levels and cost you a lot of money. This script should not be run unattended, and you should verify your throughput levels in the DynamoDB console after running. Use at your own risk.***
+***WARNING: Setting your provisioned throughput to unexpectedly high levels can cost you a lot of money. This script should not be run unattended, and you should verify your throughput levels in the DynamoDB console after running it. Use at your own risk.***
 
 Also note that this has only been tested on Mac OS X. If you have to make any changes to get it working on Linux, Windows, etc., please submit a pull request.
 
@@ -16,6 +16,7 @@ Your AWS credentials and default region will need to be provided via environment
 * AWS\_ACCESS\_KEY\_ID
 * AWS\_SECRET\_ACCESS\_KEY
 * AWS\_SECRET\_ACCESS\_KEY
+The command line options are shown in the usage section below.
 
 ## Usage
 Usage: throughput [options]
@@ -49,4 +50,3 @@ have not been set.
  * `./throughput -t your_table_name -r 120 -w 10`
 * Show Help:
  * `./throughput -h`
-
